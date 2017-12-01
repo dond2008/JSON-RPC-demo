@@ -9,4 +9,5 @@ JSON-RPC demo
 # Demo特点：
 1）验证了javaBean对象的传输及DTO操作；
 2）验证了json字符串比javaBean对象少几个字段这种情况；
-3）验证了json字符串比javaBean对象多几个字段这种情况。
+3）验证了json字符串比javaBean对象多几个字段这种情况；
+4）验证里Collection传输。
