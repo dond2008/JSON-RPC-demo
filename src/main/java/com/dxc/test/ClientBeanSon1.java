@@ -2,8 +2,11 @@ package com.dxc.test;
 
 import java.io.Serializable;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -18,6 +21,8 @@ public class ClientBeanSon1 implements Serializable {
 	private String name = "小红";
 	private Boolean boy = true;
 	private List<String> friends = Arrays.asList("王五");
+	
+	private Map<String, Object> other = new HashMap();
 
 	public int getAge() {
 		return age;
@@ -49,5 +54,14 @@ public class ClientBeanSon1 implements Serializable {
 
 	public void setFriends(List<String> friends) {
 		this.friends = friends;
+	}
+
+	public Map getOther() {
+		return other;
+	}
+
+	@JsonAnySetter
+	public void setOther(String name,Object value) {
+		this.other.put(name, value);
 	}
 }

@@ -41,6 +41,8 @@ public class JsonRpcTest {
 			for (ClientBeanSon1 son : demo2.getSons()) {
 				System.out.println(son.getFriends());
 			}
+			System.out.println("~~~~~~~~~~~~~~~other Unparsed attribute:");
+			System.out.println(demo2.getSon1().getOther());
 			System.out.println("===========================Integer");
 			System.out.println(code);
 			System.out.println("===========================String");
