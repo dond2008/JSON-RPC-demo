@@ -10,4 +10,5 @@
 - 验证了javaBean对象的传输及DTO操作；
 - 验证了json字符串比javaBean对象少几个字段这种情况；
 - 验证了json字符串比javaBean对象多几个字段这种情况；
-- 验证里Collection传输。
+- 验证了Collection传输的情况;
+- 验证了客户端读取json字符串中未知的属性的情况。
