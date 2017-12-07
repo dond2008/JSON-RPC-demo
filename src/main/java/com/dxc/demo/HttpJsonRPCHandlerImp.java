@@ -1,5 +1,7 @@
 package com.dxc.demo;
 
+import java.nio.charset.Charset;
+
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.ByteBufInputStream;
 import io.netty.buffer.ByteBufOutputStream;
@@ -22,9 +24,14 @@ public class HttpJsonRPCHandlerImp {
 		DefaultFullHttpRequest req = (DefaultFullHttpRequest) msg;
 		String rpcType = req.headers().get("Rpc-Type");
 		if (rpcType != null && rpcType.equals("shop")) {
+			Charset utf8 = Charset.forName("UTF-8");
+			System.out.println("↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓");
+			System.out.println("json-rpc INPUT: " + req.content().toString(utf8));
 			ServerStartWithNetty.rpcServer.handle(new ByteBufInputStream(req.content()),
 					new ByteBufOutputStream(req.content()));
 			System.out.println(req.getMethod());
+			System.out.println("json-rpc OUTPUT: " + req.content().toString(utf8));
+			System.out.println("↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑");
 			writeJSON(ctx, HttpResponseStatus.OK, req.content());
 			ctx.flush();
 		}
